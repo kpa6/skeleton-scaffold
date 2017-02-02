@@ -1,0 +1,113 @@
+@import 'variables';
+@import 'mixins';
+@import 'type';
+
+
+* {
+  margin:0;
+  padding:0;
+}
+
+.hide {
+    display:none;
+}
+
+body {
+  background: $page-color;
+  text-align: center;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+.container {
+
+    margin:0 auto;
+    padding: 1em;
+    text-align: left;
+
+    @include bp(narrow) {
+        width: 90%;
+    }
+    @include bp(mid) {
+        width: 500px;
+    }
+    @include bp(wide) {
+        width: 700px;
+    }
+}
+
+
+div.page-purpose {
+    border: solid 1px #ddd;
+    background-color: #f6f6f6;
+    padding: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1.5em;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+
+
+.main-nav__item {
+    display: inline;
+    margin: 0 0.5em;
+}
+
+ul {
+    list-style: inside;
+    margin-bottom: 1em;
+
+    li {
+        line-height: 1.5em;
+    }
+
+}
+
+
+ul.navigation {
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    font-size: 0.9em;
+}
+
+code {
+    display: block;
+    background-color: #fbfbfb;
+    border: solid #eee 1px;
+    padding: 4px 2px;
+    margin-bottom: 1em;
+}
+
+section {
+    border: solid 1px #eee;
+    margin: 0.5em -1em;
+    padding: 0.5em 1em;
+
+    &:hover {
+        border: solid 1px #999;
+        
+        p.meta {
+            color: #666;
+        }
+    }
+}
+
+section.quiet {
+    border: none;
+
+    p.meta {
+        display:none;
+    }
+}
+
+
+/* project specific styling */
+
+section.begin__intro {
+    background: #000;
+    color: #fff;
+}

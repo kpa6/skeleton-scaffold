@@ -1,0 +1,16 @@
+extends ../templates/base
+
+include ../mixins/_blockquote
+
+block content
+    
+    h2 Home
+    
+    +quote({
+        text: "some quote",
+        attribution : {
+            name: "An attribtion",
+            link: "http://somelink"
+        }
+    })
+        

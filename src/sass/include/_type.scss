@@ -1,0 +1,100 @@
+body {
+    line-height: 1.6em;
+    font-family: Georgia, serif;
+    color: $text-color;
+    font-size: $base-font-size;
+    font-weight: normal;
+
+    @include bp(mid) {
+        font-size: $base-font-size*1.1;
+    }
+    @include bp(wide) {
+        font-size: $base-font-size*1.3;
+    }
+
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    margin-top: 1.5em;
+}
+
+section {
+
+    h1:nth-child(1),
+    h2:nth-child(1),
+    h3:nth-child(1) {
+        margin-top: 0em;
+    }
+
+}
+
+h1 {
+    display: block;
+    font-size: 1.4em;
+    
+    @include bp(narrow) {
+        font-size: 2em;
+    }
+    @include bp(mid) {
+        font-size: 2.2em;
+    }
+    @include bp(wide) {
+        font-size: 2em;
+    }
+}
+
+h2.tag-line {
+    display:inline-block;
+}
+
+
+a {
+
+    text-decoration: none;
+
+    &:visited,
+    &:link,
+    &:active {
+        color: $link-color-dark;
+        white-space: nowrap;
+    }
+    &:hover,
+    &:focus {
+        color: $link-color;
+        border-bottom: solid 1px $link-color-bright;
+    }
+}
+
+
+.page-purpose {
+  font-size: 0.8em;
+  color: #777;
+
+  h1 {
+      margin-top: 0.5em;
+      margin-bottom:0.8em;
+  }
+  h2 {
+      margin-top: 0.2em;
+      margin-bottom: 0.8em
+  }
+  a {
+      margin: 0 1em;
+  }
+}
+
+code {
+    display:block;
+    background-color: #fff;
+    border: #eee;
+    padding: 4px; 
+}
+
+p.meta {
+    font-size: 0.7em;
+    color: #999;
+    font-family: Courier New, Courier, monospace;
+}

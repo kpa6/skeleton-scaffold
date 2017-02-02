@@ -1,0 +1,8 @@
+mixin quote(data)
+    blockquote
+        .quote-text= data.text
+        if data.attribution.name && data.attribution.link
+            .quote-name 
+                a(href=data.attribution.link)= data.attribution.name
+        else if data.attribution.name
+            .quote-name= data.attribution.name
