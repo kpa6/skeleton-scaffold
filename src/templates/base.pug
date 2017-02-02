@@ -1,3 +1,5 @@
+include ../mixins/_navigation
+
 doctype html
 html
   head
@@ -7,6 +9,9 @@ html
     title title
 
   body
-    h1 base
     
+    +navigation(locals)
+        
     block content
+
+      
