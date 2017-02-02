@@ -51,15 +51,12 @@ gulp.task('sass', () =>
 
 // compile scripts as required
 gulp.task('scripts', function() {
-  pump([
-    // gulp.src(options.srcDir + '/scripts/**/*.js'),
-    browserify(options.srcDir + '/scripts/index.js')
-      .transform('babelify', {presets: ['es2015']})
-      .bundle()
-      .pipe(source('index.js')),
-    uglify(),
-    gulp.dest(options.outputDir + '/scripts')
-  ]);
+  browserify(options.srcDir + '/scripts/index.js')
+    .transform('babelify', {presets: ['es2015']})
+    .transform('uglifyify')
+    .bundle()
+    .pipe(source('index.js'))
+    .pipe(gulp.dest(options.outputDir + '/scripts'))
 });
 
 
