@@ -57,13 +57,17 @@ gulp.task('scripts', function() {
 });
 
 
-// TODO: investigate local redirects
+
 // serve the static dist folder
 gulp.task('serve', function() {
   gulp.src(options.outputDir)
     .pipe(webserver({
       livereload: false,
       open: false
+      // TODO: populate proxies from _redirects
+      // proxies: [
+      //   {source: '/foo', target: 'http://google.com'}
+      // ]
     }));
 });
 
