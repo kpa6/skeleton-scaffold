@@ -1,10 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
+const  pump = require('pump');
 const runSequence = require('run-sequence');
 const clean = require('gulp-clean');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
 const mkdirp = require('mkdirp');
 const extend = require('extend')
 const webserver = require('gulp-webserver');
@@ -46,10 +48,13 @@ gulp.task('sass', () =>
 
 
 // compile scripts as required
-gulp.task('scripts', () =>
-  gulp.src([options.src + '/scripts/**/*.js'])
-    .pipe(gulp.dest(options.outputDir + '/scripts'))
-);
+gulp.task('scripts', function() {
+  pump([
+    gulp.src(options.srcDir + '/scripts/**/*.js'),
+    uglify(),
+    gulp.dest(options.outputDir + '/scripts')
+  ]);
+});
 
 
 // TODO: investigate local redirects
