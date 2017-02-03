@@ -10,7 +10,9 @@ const uglify = require('gulp-uglify');
 const mkdirp = require('mkdirp');
 const extend = require('extend')
 const webserver = require('gulp-webserver');
-const prettyUrl = require("gulp-pretty-url");
+const prettyUrl = require('gulp-pretty-url');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
 
 
 var options = {
@@ -49,11 +51,12 @@ gulp.task('sass', () =>
 
 // compile scripts as required
 gulp.task('scripts', function() {
-  pump([
-    gulp.src(options.srcDir + '/scripts/**/*.js'),
-    uglify(),
-    gulp.dest(options.outputDir + '/scripts')
-  ]);
+  browserify(options.srcDir + '/scripts/index.js')
+    .transform('babelify', {presets: ['es2015']})
+    .transform('uglifyify')
+    .bundle()
+    .pipe(source('index.js'))
+    .pipe(gulp.dest(options.outputDir + '/scripts'))
 });
 
 

@@ -30,9 +30,3 @@ This compiles the site, serves it on a local web server and recompiles if it see
 Continuous deployments can be set up by linking the git repo for the project to a site in Neltify and then deplying via
 
 `git push`
-
-
-
-
-
-
